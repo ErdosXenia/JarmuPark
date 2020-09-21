@@ -11,9 +11,26 @@ namespace JarmuPark
         private string szin;
         private string tipus;
         private double uzemanyag;
+
+        public double UZA
+        {
+            get { return uzemanyag; }
+        }
+
         private double fogyaszt;
         private double km;
+
+        public double KM 
+        {
+            get { return km; } 
+        }
+
         private double megtehetokm;
+
+        public double MEGTKM 
+        { 
+            get { return megtehetokm; } 
+        }
 
         public auto(string szin, string tipus, double fogyaszt)
         {
@@ -37,8 +54,6 @@ namespace JarmuPark
             Megteheto();
 
         }
-
-        
 
         public void Megy(double km)
         {
