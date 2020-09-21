@@ -13,6 +13,7 @@ namespace JarmuPark
         private double uzemanyag;
         private double fogyaszt;
         private double km;
+        private double megtehetokm;
 
         public auto(string szin, string tipus, double fogyaszt)
         {
@@ -21,16 +22,31 @@ namespace JarmuPark
             this.fogyaszt = fogyaszt;
             this.uzemanyag = 0;
             this.km = 0;
+            this.megtehetokm = 0;
+        }
+
+        private void Megteheto()
+        {
+            megtehetokm = uzemanyag / fogyaszt * 100;
         }
 
         public void Tankol(double mennyit)
         {
             uzemanyag += mennyit;
+
+            Megteheto();
+
         }
+
+        
 
         public void Megy(double km)
         {
             this.km += km;
+            uzemanyag -= (km * fogyaszt / 100);
+
+            Megteheto();
+
         }
 
         public void Allapot()
@@ -39,6 +55,7 @@ namespace JarmuPark
             Console.WriteLine($"{tipus} - {szin}");
             Console.WriteLine($"Km óra: {km} km");
             Console.WriteLine($"Üzemanyag: {uzemanyag} l");
+            Console.WriteLine($"Megtehető km: {megtehetokm}");
             Console.WriteLine("----------------------------");
         }
     }

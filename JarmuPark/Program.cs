@@ -21,6 +21,11 @@ namespace JarmuPark
             lada.Allapot();
             trabant.Allapot();
 
+            Console.Write("Mennyit megy a lada: ");
+            int km = int.Parse(Console.ReadLine());
+            lada.Megy(km);
+            lada.Allapot();
+
 
             Console.ReadKey();
         }
